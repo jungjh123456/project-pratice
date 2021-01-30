@@ -50,8 +50,8 @@ const StyleSpan = styled.span`
 		prop.blackBold &&
 		css`
 			color: #222;
-			font-size: 3.2rem;
-			letter-spacing: normal;
+			font-size: 1.9rem;
+			letter-spacing: 3px;
 			line-height: 36px;
 			font-weight: 800;
 		`}
@@ -63,7 +63,7 @@ const StyleSpan = styled.span`
 			letter-spacing: normal;
 			/* line-height: 36px; */
 		`}
-    
+
     ${(prop) =>
 		prop.blackmiddlebold &&
 		css`

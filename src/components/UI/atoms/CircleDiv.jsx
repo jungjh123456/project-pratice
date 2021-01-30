@@ -6,6 +6,23 @@ const CircleStyle = styled.div`
 	color: white;
 
 	${(props) =>
+		props.bigimgSize &&
+		css`
+			/* padding: 10%; */
+			min-width: 200px;
+			max-width: 400px;
+			width: 95%;
+			box-sizing: border-box;
+			border: 0;
+		`}
+
+	${(props) =>
+		props.imgSize &&
+		css`
+			padding: 10px;
+			border: 0;
+		`}
+	${(props) =>
 		props.large &&
 		css`
 			max-width: 500px;

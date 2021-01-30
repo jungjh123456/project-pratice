@@ -18,7 +18,9 @@ const Locations = ({ src, alt, name, ...rest }) => {
 		<>
 			{/* <GlobalStyle /> */}
 			<div className="locations-img">
-				<Img src={src} alt={alt} {...rest} />
+				<CircleDiv {...rest}>
+					<Img src={src} alt={alt} {...rest} />
+				</CircleDiv>
 				<TextStyle {...rest}>{name}</TextStyle>
 			</div>
 		</>

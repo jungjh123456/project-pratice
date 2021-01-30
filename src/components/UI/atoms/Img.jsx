@@ -12,7 +12,13 @@ const StyleImg = styled.img`
 	${(props) =>
 		props.smallImg &&
 		css`
-			width: 50px;
+			width: 70px;
+			border-radius: 5px;
+		`}
+	${(props) =>
+		props.bigImg &&
+		css`
+			width: 100%;
 			border-radius: 5px;
 		`}
 `;
