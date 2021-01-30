@@ -1,25 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import CircleDiv from './components/UI/atoms/CircleDiv';
+import CircleProfile from './components/UI/molecules/CircleProfile';
+import TextStyle from './components/UI/atoms/TextStyle';
+import MainPage from './components/pages/MainPage';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<>
+			<MainPage />
+		</>
+	);
 }
 
 export default App;
