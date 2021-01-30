@@ -22,7 +22,7 @@ const Locations = ({ src, alt, name, ...rest }) => {
 			<GlobalStyle />
 			<div className="locations-img">
 				<Img src={src} alt={alt} {...rest} />
-				<TextStyle blackmiddlebold>{name}</TextStyle>
+				<TextStyle {...rest}>{name}</TextStyle>
 			</div>
 		</>
 	);

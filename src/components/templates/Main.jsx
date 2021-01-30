@@ -1,11 +1,11 @@
 import MainStyle from '../UI/organisms/MainStyle';
 import SessionStyle from '../UI/organisms/SessionStyle';
 
-const Main = () => {
+const Main = ({ imgs }) => {
 	return (
 		<>
 			<MainStyle />
-			<SessionStyle />
+			<SessionStyle imgs={imgs} />
 		</>
 	);
 };
