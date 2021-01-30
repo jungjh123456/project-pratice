@@ -10,8 +10,18 @@ const GlobalStyle = createGlobalStyle`
     background-size: cover;
 		background-position: bottom 15% left 100%;
     background-repeat: no-repeat;
-  
-\
+	}
+	
+	.RoomLink { 
+    width: 400px;
+    display: flex;
+    flex-direction: row;    
+    flex-flow: wrap;
+    button {
+      padding: 5px 10px;
+      margin-top: 25px;
+    }
+
   }
 `;
 const MainStyle = () => {

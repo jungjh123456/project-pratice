@@ -9,15 +9,29 @@ const Section = styled.section`
 
 	align-items: center;
 `;
+
+const GlobalStyle = createGlobalStyle`
+  .locations-img {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    img {
+      margin-right: 10px;
+    }
+  }
+`;
 /* width: 100%; */
 
 const SessionStyle = ({ imgs }) => {
 	return (
-		<Section>
-			{imgs.map(({ src, alt, name }) => {
-				return <Locations src={src} alt={alt} name={name} smallImg blackmiddlebold />;
-			})}
-		</Section>
+		<>
+			<GlobalStyle />
+			<Section>
+				{imgs.map(({ src, alt, name }) => {
+					return <Locations src={src} alt={alt} name={name} smallImg blackmiddlebold />;
+				})}
+			</Section>
+		</>
 	);
 };
 
