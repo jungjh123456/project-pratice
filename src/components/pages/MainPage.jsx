@@ -18,8 +18,25 @@ const sectionImg = [
 	{ src: './imgs/tent.jpg', alt: '독특한 공간', name: '독특한 공간' },
 ];
 
+const sloganImg = [
+	{ src: './imgs/house.jpg', alt: '온라인 체험', name: '온라인 체험', subtitle: '집에서 즐기는 랜선 세계 여행' },
+	{ src: './imgs/human.jpg', alt: '체험', name: '체험', subtitle: '어디에서든 즐길 수 있는 체험' },
+	{
+		src: './imgs/nanlo.jpg',
+		alt: '어드벤처',
+		name: '어드벤처',
+		subtitle: '숙박과 식사가 포함된 며칠 일정의 여행 입니다.',
+	},
+];
+
+const section3Img = [
+	{ src: './imgs/house.jpg', alt: '집 전체', name: '숙소 호스트 되기' },
+	{ src: './imgs/human.jpg', alt: '온수 욕조', name: '온라인 체험 호스팅하기' },
+	{ src: './imgs/nanlo.jpg', alt: '캠핑 및 글램핑', name: '체험 호스팅하기' },
+];
+
 const MainPage = () => {
-	return <Main imgs={imgs} sectionImg={sectionImg} />;
+	return <Main imgs={imgs} section3Img={section3Img} sectionImg={sectionImg} sloganImg={sloganImg} />;
 };
 
 export default MainPage;

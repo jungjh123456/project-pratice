@@ -8,10 +8,9 @@ const CircleStyle = styled.div`
 	${(props) =>
 		props.bigimgSize &&
 		css`
-			/* padding: 10%; */
 			min-width: 200px;
 			max-width: 400px;
-			width: 95%;
+			width: 100%;
 			box-sizing: border-box;
 			border: 0;
 		`}
@@ -19,7 +18,7 @@ const CircleStyle = styled.div`
 	${(props) =>
 		props.imgSize &&
 		css`
-			padding: 10px;
+			padding-right: 10px;
 			border: 0;
 		`}
 	${(props) =>
@@ -39,6 +38,16 @@ const CircleStyle = styled.div`
 			&:hover {
 				background-color: rgba(0, 0, 0, 0.8);
 			}
+		`}
+		${(props) =>
+		props.bigImgthree &&
+		css`
+			min-width: 200px;
+			max-width: 400px;
+			width: 100%;
+
+			box-sizing: border-box;
+			border: 0;
 		`}
 		${(props) =>
 		props.box &&

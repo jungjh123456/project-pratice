@@ -4,7 +4,7 @@ import Locations from '../molecules/Locations';
 
 const Section = styled.section`
 	display: grid;
-	padding: 50px 60px;
+	padding: 50px 80px;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 0px 13px;
 
@@ -14,6 +14,7 @@ const Section = styled.section`
 		flex-flow: row;
 		align-items: center;
 		justify-content: flex-start;
+
 		img {
 			margin-right: 10px;
 		}

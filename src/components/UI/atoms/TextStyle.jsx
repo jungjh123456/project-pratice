@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 const StyleSpan = styled.span`
 	${(prop) =>
-		prop.whiteBold &&
+		prop.whiteMainBold &&
 		css`
 			color: #fff;
 			font-size: 4rem;
@@ -13,13 +13,23 @@ const StyleSpan = styled.span`
 		`}
 
 	${(prop) =>
+		prop.whiteMiddleSmallBold &&
+		css`
+			color: #fff;
+			font-size: 1rem;
+			letter-spacing: -0.02em;
+			line-height: 70px;
+			font-weight: 800;
+		`}
+    
+	${(prop) =>
 		prop.whiteMiddleBold &&
 		css`
 			color: #fff;
 			font-size: 3.2rem;
 			letter-spacing: -0.02em;
 			line-height: 58px;
-			font-weight: 800;
+			font-weight: 600;
 		`}
 
     ${(prop) =>
@@ -50,6 +60,16 @@ const StyleSpan = styled.span`
 		prop.blackBold &&
 		css`
 			color: #222;
+			font-size: 1.9rem;
+			letter-spacing: 3px;
+			line-height: 36px;
+			font-weight: 800;
+		`}
+    
+    ${(prop) =>
+		prop.whiteBold &&
+		css`
+			color: #eee;
 			font-size: 1.9rem;
 			letter-spacing: 3px;
 			line-height: 36px;

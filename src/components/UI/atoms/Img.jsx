@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import CircleDiv from './CircleDiv';
 
 const StyleImg = styled.img`
 	${(props) =>
@@ -18,6 +17,7 @@ const StyleImg = styled.img`
 	${(props) =>
 		props.bigImg &&
 		css`
+			min-width: 200px;
 			width: 100%;
 			border-radius: 5px;
 		`}

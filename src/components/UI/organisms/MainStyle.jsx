@@ -5,7 +5,8 @@ import RoomsLink from '../molecules/RoomsLink';
 const GlobalStyle = createGlobalStyle`
   /* width: 100%; */
   .main {
-    padding: 266px 80px 80px;
+		padding: 266px 80px 80px;
+		
     background-image: url(./imgs/bg.jpg);
     background-size: cover;
 		background-position: bottom 15% left 100%;
@@ -21,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
       padding: 5px 10px;
       margin-top: 25px;
     }
-
+		margin-bottom: 7%;
   }
 `;
 const MainStyle = () => {

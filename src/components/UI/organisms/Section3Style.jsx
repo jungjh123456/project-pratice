@@ -2,11 +2,11 @@ import styled, { createGlobalStyle } from 'styled-components';
 import CircleDiv from '../atoms/CircleDiv';
 import TextStyle from '../atoms/TextStyle';
 import Locations from '../molecules/Locations';
+
 const Section = styled.section`
 	display: flex;
 	padding: 50px 80px;
 	flex-flow: column;
-
 	span {
 		margin-bottom: 3%;
 	}
@@ -15,22 +15,22 @@ const Section = styled.section`
 		justify-content: center;
 		.locations-img {
 			flex-flow: column;
-			align-items: flex-start;
+			/* align-items: flex-start; */
 			img {
 				margin-bottom: 3%;
-				margin-right: 5px;
+				margin-right: 5%;
 			}
 		}
 	}
 `;
 
-const SectionStyle = ({ sectionImg }) => {
+const Section3Style = ({ section3Img }) => {
 	return (
 		<>
 			<Section className="section">
-				<TextStyle blackBold>어디에서나, 여행은 살아보는 거야!</TextStyle>
+				<TextStyle blackBold>수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.</TextStyle>
 				<div className="img-group">
-					{sectionImg.map(({ src, alt, name }) => {
+					{section3Img.map(({ src, alt, name }) => {
 						return <Locations src={src} alt={alt} name={name} bigImg blackmiddlebold bigimgSize />;
 					})}
 				</div>
@@ -39,4 +39,4 @@ const SectionStyle = ({ sectionImg }) => {
 	);
 };
 
-export default SectionStyle;
+export default Section3Style;
