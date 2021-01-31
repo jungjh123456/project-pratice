@@ -1,10 +1,20 @@
+import { useRef } from 'react';
 import styled, { css } from 'styled-components';
 
 const ButtonStyle = styled.button`
 	border: 1px solid #ddd;
-	border-radius: 50px;
+	/* border-radius: 50px; */
 	cursor: pointer;
 	outline: none;
+
+	${(props) =>
+		props.circle &&
+		css`
+			/* width: 50px; */
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+		`}
 	${(props) =>
 		props.large &&
 		css`
@@ -23,6 +33,9 @@ const ButtonStyle = styled.button`
 		css`
 			border-radius: 10px;
 			background-color: white;
+			&:hover {
+				background-color: rgba(235, 231, 231, 0.9);
+			}
 		`} 
 	padding: 0;
 	margin: 0;
@@ -30,6 +43,11 @@ const ButtonStyle = styled.button`
 `;
 
 const Button = ({ children, ...rest }) => {
+	// const btn = useRef();
+	// const click = (e) => {
+	// 	console.log(e.target);
+	// };
+
 	return <ButtonStyle {...rest}>{children}</ButtonStyle>;
 };
 
