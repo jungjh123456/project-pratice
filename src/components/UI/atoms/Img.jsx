@@ -2,6 +2,12 @@ import styled, { css } from 'styled-components';
 
 const StyleImg = styled.img`
 	${(props) =>
+		props.carouselimg &&
+		css`
+			width: 100%;
+			/* transform: translateX(-150px); */
+		`}
+	${(props) =>
 		props.profile &&
 		css`
 			width: 50%;

@@ -1,10 +1,21 @@
 import styled, { css } from 'styled-components';
 
 const CircleStyle = styled.div`
-	border: 1px solid #ddd;
+	/* border: 1px solid #ddd; */
 	border-radius: 50px;
 	color: white;
+	${(props) =>
+		props.carouseldiv &&
+		css`
+			width: 100%;
+			justify-content: center;
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
+			border-radius: 0;
 
+			border: 1px solid red;
+		`}
 	${(props) =>
 		props.bigimgSize &&
 		css`
@@ -12,7 +23,7 @@ const CircleStyle = styled.div`
 			max-width: 400px;
 			width: 100%;
 			box-sizing: border-box;
-			border: 0;
+			/* border: 1px solid #000; */
 		`}
 
 	${(props) =>
@@ -49,6 +60,7 @@ const CircleStyle = styled.div`
 			box-sizing: border-box;
 			border: 0;
 		`}
+		
 		${(props) =>
 		props.box &&
 		css`
