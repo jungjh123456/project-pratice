@@ -77,9 +77,10 @@ const Carousel = ({ carouselImg }) => {
 
 		console.log(slide.offsetWidth);
 		console.log(mySlideImg);
-		if (mySlideImg.current.offsetWidth === current) {
+		if (mySlideImg.current.offsetWidth < current) {
 			setCurrent((state) => (state = current - slide.offsetWidth));
 		}
+
 		setCurrent((state) => (state += slide.offsetWidth));
 
 		[...mySlide.current.children].forEach((image) => {

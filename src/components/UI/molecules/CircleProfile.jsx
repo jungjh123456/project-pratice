@@ -10,6 +10,7 @@ const CircleDivStyle = styled(Button)`
 	padding: 5px;
 	box-sizing: border-box;
 	background: #fff;
+	border-radius: 50px;
 `;
 const CircleProfile = () => {
 	return (

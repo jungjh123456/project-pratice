@@ -37,6 +37,7 @@ const CircleStyle = styled.div`
 		css`
 			max-width: 500px;
 			width: 80vw;
+			border: 1px solid #000;
 		`}
 	${(props) =>
 		props.small &&

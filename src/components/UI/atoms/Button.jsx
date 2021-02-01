@@ -6,7 +6,7 @@ const ButtonStyle = styled.button`
 	/* border-radius: 50px; */
 	cursor: pointer;
 	outline: none;
-
+	background: none;
 	${(props) =>
 		props.circle &&
 		css`
@@ -18,6 +18,7 @@ const ButtonStyle = styled.button`
 	${(props) =>
 		props.large &&
 		css`
+			border-radius: 50px;
 			max-width: 500px;
 			width: 80vw;
 		`}
