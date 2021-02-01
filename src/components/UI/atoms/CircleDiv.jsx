@@ -11,7 +11,7 @@ const CircleStyle = styled.div`
 			justify-content: center;
 			display: flex;
 			flex-direction: column;
-			overflow: hidden;
+
 			border-radius: 0;
 
 			border: 1px solid red;
