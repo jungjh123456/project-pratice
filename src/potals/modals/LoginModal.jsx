@@ -1,15 +1,31 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import styled from 'styled-components';
-import CircleDiv from '../../components/UI/atoms/DivStyle';
-import TextStyle from '../../components/UI/atoms/TextStyle';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import styled, { css } from 'styled-components';
+import CircleDiv from '../../components/UI/atoms/atoms-main/DivStyle';
+import TextStyle from '../../components/UI/atoms/atoms-main/TextStyle';
 import { AiOutlineClose } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
-import Button from '../../components/UI/atoms/Button';
-import Input from '../../components/UI/atoms/Input';
+import Button from '../../components/UI/atoms/atoms-main/Button';
+import Input from '../../components/UI/atoms/atoms-main/Input';
 import { IoIosArrowBack } from 'react-icons/io';
-import Loginhead from '../../components/UI/molecules/Loginhead';
-import LoginGoogle from '../../components/UI/molecules/LoginGoogle';
-import LoginBtn from '../../components/UI/molecules/LoginBtn';
+import { GoMail } from 'react-icons/go';
+import { RiLock2Line } from 'react-icons/ri';
+import Loginhead from '../../components/UI/molecules/molecules-main/Loginhead';
+import LoginGoogle from '../../components/UI/molecules/molecules-main/LoginGoogle';
+import LoginBtn from '../../components/UI/molecules/molecules-main/LoginBtn';
+import { keyframes } from 'styled-components';
+
+const boxFade = keyframes`
+	0% {
+		opacity: 0;
+		transform: translateY(100%);
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 1;
+	}
+`;
 const Modaldiv = styled.div`
 	display: flex;
 	position: fixed;
@@ -23,6 +39,9 @@ const Modaldiv = styled.div`
 	.login-group {
 		display: flex;
 		justify-content: flex-start;
+		&.active {
+			animation: ${boxFade} 0.2s ease-in alternate forwards;
+		}
 		.login-text {
 			display: flex;
 			align-items: center;
@@ -96,13 +115,27 @@ const Modaldiv = styled.div`
 			}
 		}
 		.login-input {
-			width: 400px;
-
+			width: 100%;
 			border-radius: 0;
 			margin: 0 auto;
-			input {
-				width: 385px;
+			.email-div {
+				position: relative;
+
+				height: 50px;
+				width: 400px;
 				margin-bottom: 10px;
+				input {
+					height: 100%;
+					box-sizing: border-box;
+					/* margin-bottom: 10px; */
+				}
+				svg {
+					color: rgba(0, 0, 0, 0.4);
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					right: 10px;
+				}
 			}
 			display: flex;
 			flex-direction: column;
@@ -170,12 +203,11 @@ const Modaldiv = styled.div`
 			}
 			button {
 				border: 0;
-
+				padding: 10px 0;
 				span {
 					font-size: 0.8rem;
 
 					vertical-align: middle;
-					margin-bottom: 10px;
 				}
 			}
 			margin-bottom: 10px;
@@ -183,35 +215,46 @@ const Modaldiv = styled.div`
 	}
 `;
 
-const LoginPotal = ({ modal }) => {
+const LoginPotal = ({ modal, setModal }) => {
 	const [visible, setVisible] = useState(true);
+
 	const noScroll = useCallback(() => {
 		document.body.style.overflow = 'hidden';
 		document.querySelector('html').scrollTop = window.scrollY;
 		window.scrollTo(0, 0);
 	}, []);
-
-	window.addEventListener('scroll', noScroll);
-
-	if (visible === true) {
+	console.log(modal);
+	if (modal) {
+		window.addEventListener('scroll', noScroll);
+	} else if (!modal) {
 		window.removeEventListener('scroll', noScroll);
 	}
-	const hide = (e) => {
-		e.preventDefault();
-		// props.setModal(false);
-	};
+	const bgClick = useCallback(
+		(e) => {
+			if (!e.target.matches('.bg')) return;
+			setModal(false);
+		},
+		[setModal]
+	);
+
 	return (
-		<Modaldiv>
-			<form onSubmit={hide}>
-				<CircleDiv className="login-group" logindiv>
-					<Loginhead name="로그인" />
+		<Modaldiv className="bg" onClick={bgClick}>
+			<form>
+				<CircleDiv className={modal ? 'login-group active' : 'login-group'} logindiv>
+					<Loginhead name="로그인" modal={modal} setModal={setModal} />
 					<LoginGoogle />
 					<CircleDiv borderline className="or" />
 					<CircleDiv className="email-login">
 						<CircleDiv className="google-login">
 							<CircleDiv className="login-input">
-								<Input type="email" placeholder={'이메일 주소'} />
-								<Input type="password" placeholder={'비밀번호 입력'} />
+								<div className="email-div">
+									<Input type="email" placeholder={'이메일 주소'} />
+									<GoMail />
+								</div>
+								<div className="email-div">
+									<Input type="password" placeholder={'비밀번호 입력'} />
+									<RiLock2Line />
+								</div>
 								<Button className="password-ok">
 									<TextStyle greentextLine>비밀번호 보기</TextStyle>
 								</Button>

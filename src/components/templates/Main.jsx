@@ -1,9 +1,9 @@
-import ArticleStyle from '../UI/organisms/SloganStyle';
-import MainStyle from '../UI/organisms/MainStyle';
-import SectionStyle from '../UI/organisms/SectionStyle';
-import SessionStyle from '../UI/organisms/SessionStyle';
-import SloganStyle from '../UI/organisms/SloganStyle';
-import Section3Style from '../UI/organisms/Section3Style';
+import ArticleStyle from '../UI/organisms/organisms-main/SloganStyle';
+import MainStyle from '../UI/organisms/organisms-main/MainStyle';
+import SectionStyle from '../UI/organisms/organisms-main/SectionStyle';
+import SessionStyle from '../UI/organisms/organisms-main/SessionStyle';
+import SloganStyle from '../UI/organisms/organisms-main/SloganStyle';
+import Section3Style from '../UI/organisms/organisms-main/Section3Style';
 
 const Main = ({ imgs, sectionImg, sloganImg, section3Img }) => {
 	return (

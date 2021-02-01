@@ -1,8 +1,6 @@
 import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
-import LoginPotal from '../../../potals/modals/LoginModal';
-import Modal from '../../../potals/modals/Modal';
-import RoomsLink from '../molecules/RoomsLink';
+import RoomsLink from '../../molecules/molecules-main/RoomsLink';
 
 const MainComponentPc = styled.main`
 	/* width: 100%; */

@@ -1,4 +1,4 @@
-import Button from '../atoms/Button';
+import Button from '../../atoms/atoms-main/Button';
 import { IoIosArrowForward } from 'react-icons/io';
 const ArrowButton = (props) => {
 	console.log(props);

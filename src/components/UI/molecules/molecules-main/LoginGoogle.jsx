@@ -1,7 +1,7 @@
 import { FcGoogle } from 'react-icons/fc';
-import Button from '../atoms/Button';
-import CircleDiv from '../atoms/DivStyle';
-import TextStyle from '../atoms/TextStyle';
+import Button from '../../atoms/atoms-main/Button';
+import CircleDiv from '../../atoms/atoms-main/DivStyle';
+import TextStyle from '../../atoms/atoms-main/TextStyle';
 
 const LoginGoogle = () => {
 	return (

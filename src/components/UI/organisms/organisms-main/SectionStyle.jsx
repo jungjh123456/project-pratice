@@ -1,10 +1,9 @@
 import { useRef } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import styled, { createGlobalStyle } from 'styled-components';
-import CircleDiv from '../atoms/DivStyle';
-import TextStyle from '../atoms/TextStyle';
-import ArrowButton from '../molecules/ArrowButton';
-import Locations from '../molecules/Locations';
+import styled from 'styled-components';
+import TextStyle from '../../atoms/atoms-main/TextStyle';
+import ArrowButton from '../../molecules/molecules-main/ArrowButton';
+import Locations from '../../molecules/molecules-main/Locations';
 const SectionPc = styled.section`
 	display: flex;
 	padding: 50px 80px;

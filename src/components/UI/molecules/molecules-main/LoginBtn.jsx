@@ -1,5 +1,5 @@
-import Button from '../atoms/Button';
-import TextStyle from '../atoms/TextStyle';
+import Button from '../../atoms/atoms-main/Button';
+import TextStyle from '../../atoms/atoms-main/TextStyle';
 
 const LoginBtn = ({ name }) => {
 	return (

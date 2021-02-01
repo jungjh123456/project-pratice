@@ -1,6 +1,6 @@
-import CircleDiv from '../atoms/DivStyle';
-import Img from '../atoms/Img';
-import TextStyle from '../atoms/TextStyle';
+import CircleDiv from '../../atoms/atoms-main/DivStyle';
+import Img from '../../atoms/atoms-main/Img';
+import TextStyle from '../../atoms/atoms-main/TextStyle';
 
 const Locations = ({ src, alt, name, subtitle, ...rest }) => {
 	return (

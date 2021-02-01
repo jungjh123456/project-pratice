@@ -99,7 +99,6 @@ const DivStyle = styled.div`
 `;
 
 const CircleDiv = ({ children, ...rest }) => {
-	console.log(rest);
 	return <DivStyle {...rest}>{children}</DivStyle>;
 };
 

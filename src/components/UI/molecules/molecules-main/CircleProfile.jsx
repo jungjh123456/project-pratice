@@ -1,7 +1,7 @@
 import { GiHamburgerMenu } from 'react-icons/gi';
 import styled from 'styled-components';
-import Button from '../atoms/Button';
-import Img from '../atoms/Img';
+import Button from '../../atoms/atoms-main/Button';
+import Img from '../../atoms/atoms-main/Img';
 
 const CircleDivStyle = styled(Button)`
 	display: flex;

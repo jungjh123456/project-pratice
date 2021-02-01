@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
-import CircleDiv from '../atoms/DivStyle';
-import Img from '../atoms/Img';
+import CircleDiv from '../../atoms/atoms-main/DivStyle';
+import Img from '../../atoms/atoms-main/Img';
 import ArrowButton from './ArrowButton';
 
 const CarouselStyle = styled.div`

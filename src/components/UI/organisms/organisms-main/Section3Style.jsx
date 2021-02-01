@@ -1,8 +1,8 @@
 import { useMediaQuery } from 'react-responsive';
 import styled, { createGlobalStyle } from 'styled-components';
-import CircleDiv from '../atoms/DivStyle';
-import TextStyle from '../atoms/TextStyle';
-import Locations from '../molecules/Locations';
+import CircleDiv from '../../atoms/atoms-main/DivStyle';
+import TextStyle from '../../atoms/atoms-main/TextStyle';
+import Locations from '../../molecules/molecules-main/Locations';
 
 const SectionPc = styled.section`
 	display: flex;

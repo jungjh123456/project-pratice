@@ -64,11 +64,6 @@ const ButtonStyle = styled.button`
 `;
 
 const Button = ({ children, ...rest }) => {
-	// const btn = useRef();
-	// const click = (e) => {
-	// 	console.log(e.target);
-	// };
-
 	return <ButtonStyle {...rest}>{children}</ButtonStyle>;
 };
 
