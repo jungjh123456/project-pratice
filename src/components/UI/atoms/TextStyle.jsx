@@ -47,10 +47,11 @@ const StyleSpan = styled.span`
 		prop.greentextLine &&
 		css`
 			color: #008489;
-			font-size: 1rem;
-			letter-spacing: -0.02em;
-			line-height: 58px;
+			font-size: 1.1rem;
+			/* letter-spacing: -0.02em; */
+			/* line-height: 58px; */
 			font-weight: 600;
+			/* border: 0; */
 			&:hover {
 				text-decoration: underline;
 			}
@@ -66,6 +67,16 @@ const StyleSpan = styled.span`
 			font-weight: 800;
 		`}
     
+    ${(prop) =>
+		prop.whiteNormalBold &&
+		css`
+			color: #eee;
+			font-size: 1rem;
+			letter-spacing: 3px;
+			line-height: 36px;
+			font-weight: 800;
+		`}
+
     ${(prop) =>
 		prop.whiteBold &&
 		css`
@@ -91,6 +102,21 @@ const StyleSpan = styled.span`
 			font-size: 1rem;
 			letter-spacing: normal;
 			font-weight: 700;
+		`}
+
+		${(props) =>
+		props.blackSmallBold &&
+		css`
+			color: #000;
+			font-size: 1.2rem;
+			font-weight: 600;
+		`} 
+		${(props) =>
+		props.graySmallNormal &&
+		css`
+			color: #717171;
+			font-size: 1.2rem;
+			font-weight: 400;
 		`}
 `;
 

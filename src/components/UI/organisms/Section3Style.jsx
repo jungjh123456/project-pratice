@@ -1,6 +1,6 @@
 import { useMediaQuery } from 'react-responsive';
 import styled, { createGlobalStyle } from 'styled-components';
-import CircleDiv from '../atoms/CircleDiv';
+import CircleDiv from '../atoms/DivStyle';
 import TextStyle from '../atoms/TextStyle';
 import Locations from '../molecules/Locations';
 

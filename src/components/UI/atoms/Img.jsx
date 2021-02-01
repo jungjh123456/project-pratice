@@ -30,7 +30,7 @@ const StyleImg = styled.img`
 `;
 
 const Img = ({ img, altmessage, ...rest }) => {
-	return <StyleImg src={img} {...rest} alt={altmessage} />;
+	return <StyleImg src={img} alt={altmessage} {...rest} />;
 };
 
 export default Img;

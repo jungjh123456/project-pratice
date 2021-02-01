@@ -1,9 +1,36 @@
 import styled, { css } from 'styled-components';
 
-const CircleStyle = styled.div`
+const DivStyle = styled.div`
 	/* border: 1px solid #ddd; */
 	border-radius: 50px;
 	color: white;
+
+	${(props) =>
+		props.borderline &&
+		css`
+			width: 88%;
+			height: 1px;
+			background: rgb(0, 0, 0, 0.2);
+			margin: 20px 0;
+		`}
+
+	${(props) =>
+		props.logindiv &&
+		css`
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 450px;
+			/* min-width: 400px; */
+			min-height: 450px;
+			background-color: rgb(255, 255, 255);
+			border-radius: 3%;
+			/* margin: 0 auto; */
+			justify-content: center;
+			display: flex;
+			flex-direction: column;
+			min-height: 400px;
+		`}
 	${(props) =>
 		props.carouseldiv &&
 		css`
@@ -73,7 +100,7 @@ const CircleStyle = styled.div`
 
 const CircleDiv = ({ children, ...rest }) => {
 	console.log(rest);
-	return <CircleStyle {...rest}>{children}</CircleStyle>;
+	return <DivStyle {...rest}>{children}</DivStyle>;
 };
 
 export default CircleDiv;

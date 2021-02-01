@@ -1,6 +1,7 @@
 import { useMediaQuery } from 'react-responsive';
-import styled, { createGlobalStyle } from 'styled-components';
-import CircleProfile from '../molecules/CircleProfile';
+import styled from 'styled-components';
+import LoginPotal from '../../../potals/modals/LoginModal';
+import Modal from '../../../potals/modals/Modal';
 import RoomsLink from '../molecules/RoomsLink';
 
 const MainComponentPc = styled.main`

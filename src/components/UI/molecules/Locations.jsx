@@ -1,4 +1,4 @@
-import CircleDiv from '../atoms/CircleDiv';
+import CircleDiv from '../atoms/DivStyle';
 import Img from '../atoms/Img';
 import TextStyle from '../atoms/TextStyle';
 

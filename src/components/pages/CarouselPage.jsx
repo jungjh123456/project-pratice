@@ -1,5 +1,5 @@
 import Button from '../UI/atoms/Button';
-import CircleDiv from '../UI/atoms/CircleDiv';
+import CircleDiv from '../UI/atoms/DivStyle';
 import TextStyle from '../UI/atoms/TextStyle';
 import Carousel from '../UI/molecules/Carousel';
 import CircleProfile from '../UI/molecules/CircleProfile';

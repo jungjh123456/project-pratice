@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
-import CircleDiv from '../atoms/CircleDiv';
+import CircleDiv from '../atoms/DivStyle';
 import Img from '../atoms/Img';
 import ArrowButton from './ArrowButton';
 

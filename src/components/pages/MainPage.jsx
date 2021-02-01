@@ -36,7 +36,11 @@ const section3Img = [
 ];
 
 const MainPage = () => {
-	return <Main imgs={imgs} section3Img={section3Img} sectionImg={sectionImg} sloganImg={sloganImg} />;
+	return (
+		<>
+			<Main imgs={imgs} section3Img={section3Img} sectionImg={sectionImg} sloganImg={sloganImg} />
+		</>
+	);
 };
 
 export default MainPage;
