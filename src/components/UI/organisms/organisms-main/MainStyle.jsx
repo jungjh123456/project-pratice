@@ -17,6 +17,7 @@ const MainComponentPc = styled.main`
 		flex-direction: row;
 		flex-flow: wrap;
 		button {
+			border-radius: 10px;
 			padding: 5px 10px;
 			margin-top: 25px;
 		}
@@ -44,6 +45,7 @@ const MainComponentTablet = styled.main`
 		}
 
 		button {
+			border-radius: 10px;
 			padding: 5px 10px;
 			margin-top: 25px;
 		}
@@ -76,6 +78,7 @@ const MainComponentMobile = styled.main`
 		}
 
 		button {
+			border-radius: 10px;
 			span {
 				font-size: 1rem;
 				line-height: 2;

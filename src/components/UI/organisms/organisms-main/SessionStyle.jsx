@@ -15,9 +15,8 @@ const SectionPc = styled.section`
 		flex-flow: row;
 		align-items: center;
 		justify-content: flex-start;
-
-		img {
-			margin-right: 10px;
+		div {
+			margin-right: 20px;
 		}
 	}
 `;
@@ -44,8 +43,8 @@ const SectionTablet = styled.section`
 		align-items: center;
 		justify-content: flex-start;
 
-		img {
-			margin-right: 10px;
+		div {
+			margin-right: 20px;
 		}
 	}
 `;
@@ -64,8 +63,8 @@ const SectionMobile = styled.section`
 		align-items: center;
 		justify-content: flex-start;
 
-		img {
-			margin-right: 10px;
+		div {
+			margin-right: 20px;
 		}
 	}
 `;

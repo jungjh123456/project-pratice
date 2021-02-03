@@ -6,103 +6,127 @@ import Img from '../../atoms/atoms-main/Img';
 import ArrowButton from './ArrowButton';
 
 const CarouselStyle = styled.div`
-	div {
-		/* background-color: red; */
-		position: relative;
-		width: 100%;
+	width: 400px;
+	margin: 20px auto;
+
+	.carousel-size {
+		border: 2px solid #c058dc;
+		border-radius: 5px;
+		/* width: 100%; */
+		height: 310px;
 		display: flex;
-		justify-content: center;
 
-		.left {
-			width: 50px;
-			height: 50px;
-			/* background-color: red; */
-			position: absolute;
+		overflow: hidden;
+		position: relative;
+		/* width: 500px; */
+		/* width: 500px; */
+		/* float: left; */
+
+		.carousel-ui {
+			/* width: 100%; */
+			margin: 0;
+			padding-left: 0;
+			height: 100%;
 			display: flex;
-			justify-content: center;
-			align-items: center;
-			z-index: 1;
-			top: 50%;
-			transform: translateY(-50%) rotate(180deg);
-		}
-
-		.carousel-group {
-			display: flex;
-			justify-content: center;
-
-			.slide {
-				justify-content: flex-start;
-				overflow: hidden;
-				width: 20%;
+			flex-shrink: 0;
+			transition: all 0.5s;
+			li {
 				display: flex;
-				box-sizing: border-box;
-				/* padding: 30px; */
+				/* width: 100%; */
+				justify-content: flex-start;
+				/* align-items: center; */
+
+				.img-slide {
+					width: 396px;
+
+					/* position: absolute; */
+					/* top: 0; */
+					/* left: 0; */
+				}
 			}
 		}
-		.right {
-			display: flex;
-			width: 50px;
-			height: 50px;
-			justify-content: center;
-			align-items: center;
-			position: absolute;
-			top: 50%;
-			right: 0;
-			transform: translateY(-50%);
+		.controls {
+			.prev {
+				position: absolute;
+				left: 20px;
+				transform: rotate(180deg);
+			}
+			.next {
+				position: absolute;
+				right: 20px;
+			}
 		}
 	}
 `;
 
 const Carousel = ({ carouselImg }) => {
-	const mySlide = useRef();
-	const mySlideImg = useRef();
-	const [current, setCurrent] = useState(0);
+	const [width, setWidth] = useState(0);
 	const [count, setCount] = useState(0);
-	const length = carouselImg.length;
+	const [sumWidth, setSumWidth] = useState(0);
+	console.log(carouselImg);
+	const slider = useRef();
+	useEffect(() => {
+		const imgs = document.querySelectorAll('.img-slide');
+		setWidth(imgs[0].offsetWidth);
+	}, []);
 
-	if (!Array.isArray(carouselImg) || carouselImg.length <= 0) return null;
-
-	const leftClick = (e) => {
-		const slide = mySlide.current;
-		setCurrent((state) => (state -= slide.offsetWidth));
-		if (current < 0) {
-			setCurrent((state) => (state = 0));
-		}
-		[...mySlide.current.children].forEach((image) => {
-			image.style.transform = `translateX(-${current}px)`;
-		});
-	};
-	const rightClick = (e) => {
-		const slide = mySlide.current;
-
-		console.log(slide.offsetWidth);
-		console.log(mySlideImg);
-		if (mySlideImg.current.offsetWidth < current) {
-			setCurrent((state) => (state = current - slide.offsetWidth));
-		}
-
-		setCurrent((state) => (state += slide.offsetWidth));
-
-		[...mySlide.current.children].forEach((image) => {
-			image.style.transform = `translateX(-${current}px)`;
-		});
-		// slide.style.transform = `translateX(${current})`;
+	const prevClick = () => {
+		setCount((state) => (state = count - 1));
+		setSumWidth((state) => (state = sumWidth - width));
+		slider.current.style.transform = `translateX(-${sumWidth}px)`;
 	};
 
-	console.log(current);
+	const nextClick = () => {
+		setCount((state) => (state = count + 1));
+		setSumWidth((state) => (state = sumWidth + width));
+		// slider.current.style.transform = `translateX(-${sumWidth}px)`;
+		// if (count === carouselImg.length) {
+		// 	slider.current.style.transition = '3s';
+		// 	slider.current.style.transform = `translateX(${sumWidth + carouselImg.length * width}px)`;
+		// 	// 	slider.current.style.transition = '1s';
+		// }
+		if (count === 2) {
+			setCount(0);
+		}
+		console.log(count === carouselImg.length - 1, count, carouselImg.length);
+	};
+
+	console.log(count);
+	// console.log(sumWidth);
+
 	return (
 		<CarouselStyle>
-			<CircleDiv carouseldiv>
-				<ArrowButton onClick={leftClick} className="left" />
-				<div className="carousel-group" ref={mySlideImg}>
-					<div className="slide" ref={mySlide}>
-						{carouselImg.map(({ src, alt, name }, index) => {
-							return <Img src={src} alt={alt} carouselimg />;
-						})}
-					</div>
+			<div className="carousel-size">
+				<ul ref={slider} className="carousel-ui">
+					{carouselImg.map(({ src, alt }, i, arr) => {
+						return (
+							<>
+								{' '}
+								{count === i && (
+									<>
+										<li>
+											<img className="img-slide" src={src} alt={alt} />
+										</li>
+										<li>
+											<img className="img-slide" src={arr[i + 1].src} alt={arr[i + 1].src} />
+										</li>
+									</>
+								)}
+							</>
+						);
+					})}
+				</ul>
+				<div className="controls">
+					{/* <button className="prev" ref={nextBtn} onClick={prevClick}>
+						이전
+					</button>
+					<button className="next" ref={prevBtn} onClick={nextClick}>
+						이후
+					</button> */}
+					<ArrowButton className="prev" onClick={prevClick} />
+					<ArrowButton className="next" onClick={nextClick} />
 				</div>
-				<ArrowButton onClick={rightClick} className="right" />
-			</CircleDiv>
+			</div>
 		</CarouselStyle>
 	);
 };

@@ -36,6 +36,7 @@ const Modaldiv = styled.div`
 	z-index: 0;
 	justify-content: center;
 	align-items: center;
+	background-color: rgb(0, 0, 0, 0.5);
 	.login-group {
 		display: flex;
 		justify-content: flex-start;
@@ -81,11 +82,11 @@ const Modaldiv = styled.div`
 				justify-content: space-between;
 				align-items: center;
 				border-radius: 5px;
-				button {
+				a {
 					width: 400px;
 					height: 40px;
 					display: flex;
-
+					text-decoration: none;
 					justify-content: center;
 					align-items: center;
 					border: 2px solid rgb(0, 0, 0, 0.5);
@@ -216,25 +217,24 @@ const Modaldiv = styled.div`
 `;
 
 const LoginPotal = ({ modal, setModal }) => {
-	const [visible, setVisible] = useState(true);
-
-	const noScroll = useCallback(() => {
-		document.body.style.overflow = 'hidden';
-		document.querySelector('html').scrollTop = window.scrollY;
-		window.scrollTo(0, 0);
-	}, []);
-	console.log(modal);
-	if (modal) {
-		window.addEventListener('scroll', noScroll);
-	} else if (!modal) {
-		window.removeEventListener('scroll', noScroll);
-	}
+	// const noScroll = useCallback(() => {
+	// 	document.body.style.overflow = 'hidden';
+	// 	document.querySelector('html').scrollTop = window.scrollY;
+	// 	window.scrollTo(0, 0);
+	// }, []);
+	// console.log(modal);
+	// if (modal) {
+	// 	window.addEventListener('scroll', noScroll);
+	// } else if (!modal) {
+	// 	window.removeEventListener('scroll', noScroll);
+	// }
 	const bgClick = useCallback(
 		(e) => {
 			if (!e.target.matches('.bg')) return;
-			setModal(false);
+			setModal(!modal);
+			document.body.style.overflow = 'auto';
 		},
-		[setModal]
+		[modal, setModal]
 	);
 
 	return (

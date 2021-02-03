@@ -1,8 +1,6 @@
 import styled, { css } from 'styled-components';
 
 const DivStyle = styled.div`
-	/* border: 1px solid #ddd; */
-	border-radius: 50px;
 	color: white;
 
 	${(props) =>
@@ -38,7 +36,6 @@ const DivStyle = styled.div`
 			justify-content: center;
 			display: flex;
 			flex-direction: column;
-
 			border-radius: 0;
 
 			border: 1px solid red;
@@ -53,12 +50,7 @@ const DivStyle = styled.div`
 			/* border: 1px solid #000; */
 		`}
 
-	${(props) =>
-		props.imgSize &&
-		css`
-			padding-right: 10px;
-			border: 0;
-		`}
+
 	${(props) =>
 		props.large &&
 		css`

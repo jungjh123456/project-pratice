@@ -38,7 +38,7 @@ const ButtonStyle = styled.button`
 	${(props) =>
 		props.large &&
 		css`
-			border-radius: 50px;
+			/* border-radius: 50px; */
 			max-width: 500px;
 			width: 80vw;
 		`}
@@ -52,7 +52,6 @@ const ButtonStyle = styled.button`
 	${(props) =>
 		props.normal &&
 		css`
-			border-radius: 10px;
 			background-color: white;
 			&:hover {
 				background-color: rgba(235, 231, 231, 0.9);

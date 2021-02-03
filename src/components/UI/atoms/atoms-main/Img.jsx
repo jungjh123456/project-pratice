@@ -17,7 +17,7 @@ const StyleImg = styled.img`
 	${(props) =>
 		props.smallImg &&
 		css`
-			width: 70px;
+			width: 100%;
 			border-radius: 5px;
 		`}
 	${(props) =>

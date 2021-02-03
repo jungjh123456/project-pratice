@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import LoginPotal from '../../../../potals/modals/LoginModal';
-import Modal from '../../../../potals/modals/Modal';
+import Modal from '../../../../potals/modals/modal';
 import Button from '../../atoms/atoms-main/Button';
 import TextStyle from '../../atoms/atoms-main/TextStyle';
 
@@ -8,7 +8,6 @@ const RoomsLink = () => {
 	const [modal, setModal] = useState(false);
 
 	const click = () => {
-		document.body.style.overflow = 'hidden';
 		setModal(true);
 	};
 

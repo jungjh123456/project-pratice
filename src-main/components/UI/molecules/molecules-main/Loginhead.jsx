@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
-import Modal from '../../../../potals/modals/Modal';
+import Modal from '../../../../potals/modals/modal';
 import Button from '../../atoms/atoms-main/Button';
 import CircleDiv from '../../atoms/atoms-main/DivStyle';
 import TextStyle from '../../atoms/atoms-main/TextStyle';
@@ -9,7 +9,6 @@ const Loginhead = ({ name, modal, setModal }) => {
 	const hide = (e) => {
 		e.preventDefault();
 		// props.setModal(false);
-		document.body.style.overflow = 'auto';
 		setModal(false);
 	};
 	return (

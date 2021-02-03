@@ -12,13 +12,13 @@ const SloganPc = styled.div`
 	color: #ffffff;
 
 	span {
-		/* margin-left: 10px; */
 		line-height: 1.4;
 	}
 	div {
 		display: flex;
 		font-size: 0.9rem;
 		justify-content: center;
+		margin-right: 10px;
 		.locations-img {
 			flex-flow: column;
 			align-items: flex-start;
@@ -26,6 +26,9 @@ const SloganPc = styled.div`
 			img {
 				margin-top: 5%;
 				margin-bottom: 6px;
+			}
+			span {
+				font-size: 0.75rem;
 			}
 		}
 	}
@@ -55,6 +58,7 @@ const SloganTablet = styled.div`
 		display: flex;
 		font-size: 0.9rem;
 		justify-content: center;
+		margin-right: 10px;
 		.locations-img {
 			flex-flow: column;
 			align-items: flex-start;
@@ -83,6 +87,7 @@ const SloganMobile = styled.div`
 		display: flex;
 		font-size: 0.9rem;
 		/* justify-content: center; */
+		margin-right: 10px;
 		span {
 			font-size: 0.7rem;
 		}
@@ -119,9 +124,7 @@ const SloganStyle = ({ sloganImg }) => {
 					</TextStyle>
 					<div>
 						{sloganImg.map(({ src, alt, name, subtitle }) => {
-							return (
-								<Locations src={src} alt={alt} name={name} bigImg whiteMiddleSmallBold imgSize subtitle={subtitle} />
-							);
+							return <Locations src={src} alt={alt} name={name} bigImg whiteMiddleSmallBold subtitle={subtitle} />;
 						})}
 					</div>
 				</SloganPc>

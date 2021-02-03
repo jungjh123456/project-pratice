@@ -1,3 +1,4 @@
+import { withRouter } from 'react-router-dom';
 import Main from '../templates/Main';
 
 const imgs = [
@@ -35,7 +36,8 @@ const section3Img = [
 	{ src: './imgs/nanlo.jpg', alt: '캠핑 및 글램핑', name: '체험 호스팅하기' },
 ];
 
-const MainPage = () => {
+const MainPage = (props) => {
+	console.log(props);
 	return (
 		<>
 			<Main imgs={imgs} section3Img={section3Img} sectionImg={sectionImg} sloganImg={sloganImg} />
@@ -43,4 +45,4 @@ const MainPage = () => {
 	);
 };
 
-export default MainPage;
+export default withRouter(MainPage);

@@ -13,12 +13,6 @@ const CarouselPage = () => {
 	return (
 		<>
 			<Carousel carouselImg={carouselImg} />
-			<Button large>hello</Button>
-			<Button small>hello</Button>
-			<Button normal>hello</Button>
-			<CircleDiv large>hello</CircleDiv>
-			<TextStyle blackBold>hello</TextStyle>
-			<CircleProfile />
 		</>
 	);
 };
