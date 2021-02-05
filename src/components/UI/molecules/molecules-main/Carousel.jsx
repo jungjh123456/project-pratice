@@ -1,134 +1,82 @@
 import { useEffect, useRef, useState } from 'react';
-import Slider from 'react-slick';
 import styled from 'styled-components';
-import CircleDiv from '../../atoms/atoms-main/DivStyle';
-import Img from '../../atoms/atoms-main/Img';
-import ArrowButton from './ArrowButton';
 
-const CarouselStyle = styled.div`
-	width: 400px;
-	margin: 20px auto;
+const Container = styled.div`
+	width: 60%;
+	overflow: hidden;
+`;
 
-	.carousel-size {
-		border: 2px solid #c058dc;
-		border-radius: 5px;
-		/* width: 100%; */
-		height: 310px;
-		display: flex;
-
-		overflow: hidden;
-		position: relative;
-		/* width: 500px; */
-		/* width: 500px; */
-		/* float: left; */
-
-		.carousel-ui {
-			/* width: 100%; */
-			margin: 0;
-			padding-left: 0;
-			height: 100%;
-			display: flex;
-			flex-shrink: 0;
-			transition: all 0.5s;
-			li {
-				display: flex;
-				/* width: 100%; */
-				justify-content: flex-start;
-				/* align-items: center; */
-
-				.img-slide {
-					width: 396px;
-
-					/* position: absolute; */
-					/* top: 0; */
-					/* left: 0; */
-				}
-			}
-		}
-		.controls {
-			.prev {
-				position: absolute;
-				left: 20px;
-				transform: rotate(180deg);
-			}
-			.next {
-				position: absolute;
-				right: 20px;
-			}
-		}
+const Button = styled.button`
+	all: unset;
+	border: 1px solid coral;
+	padding: 0.5em 2em;
+	color: coral;
+	border-radius: 10px;
+	&:hover {
+		transition: all 0.3s ease-in-out;
+		background-color: coral;
+		color: #fff;
 	}
 `;
 
-const Carousel = ({ carouselImg }) => {
-	const [width, setWidth] = useState(0);
-	const [count, setCount] = useState(0);
-	const [sumWidth, setSumWidth] = useState(0);
+const SliderContainer = styled.div`
+	width: 100%;
+	display: flex;
+`;
+
+const Img = styled.img`
+	width: 100%;
+	height: 100%;
+`;
+
+const Slide = ({ carouselImg }) => {
+	const TOTAL_SLIDES = carouselImg.length;
+	const [currentSlide, setCurrentSlide] = useState(0);
+	const [imgs, setImg] = useState(carouselImg);
+	console.log(imgs[TOTAL_SLIDES - 1]);
+	console.log(imgs[0]);
+	const slideRef = useRef(null);
 	console.log(carouselImg);
-	const slider = useRef();
+
+	// setImg((state) => ({ state, ...img }));
 	useEffect(() => {
-		const imgs = document.querySelectorAll('.img-slide');
-		setWidth(imgs[0].offsetWidth);
-	}, []);
+		// imgs.unshift(imgs[TOTAL_SLIDES - 1]);
+		// imgs.push(imgs[0]);
+		slideRef.current.style.transition = 'all 0.5s ease-in-out';
+		slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
+	}, [TOTAL_SLIDES, currentSlide, imgs]);
 
-	const prevClick = () => {
-		setCount((state) => (state = count - 1));
-		setSumWidth((state) => (state = sumWidth - width));
-		slider.current.style.transform = `translateX(-${sumWidth}px)`;
-	};
+	const nextSlide = () => {
+		if (currentSlide === TOTAL_SLIDES) {
+			// setCurrentSlide(0);
+			// slideRef.current.style.transform = 'none';
 
-	const nextClick = () => {
-		setCount((state) => (state = count + 1));
-		setSumWidth((state) => (state = sumWidth + width));
-		// slider.current.style.transform = `translateX(-${sumWidth}px)`;
-		// if (count === carouselImg.length) {
-		// 	slider.current.style.transition = '3s';
-		// 	slider.current.style.transform = `translateX(${sumWidth + carouselImg.length * width}px)`;
-		// 	// 	slider.current.style.transition = '1s';
-		// }
-		if (count === 2) {
-			setCount(0);
+			setCurrentSlide(currentSlide + 1);
+		} else {
+			setCurrentSlide(currentSlide + 1);
 		}
-		console.log(count === carouselImg.length - 1, count, carouselImg.length);
 	};
 
-	console.log(count);
-	// console.log(sumWidth);
-
+	const prevSlide = () => {
+		if (currentSlide === 0) {
+			setCurrentSlide(TOTAL_SLIDES - 1);
+		} else {
+			setCurrentSlide(currentSlide - 1);
+		}
+	};
 	return (
-		<CarouselStyle>
-			<div className="carousel-size">
-				<ul ref={slider} className="carousel-ui">
-					{carouselImg.map(({ src, alt }, i, arr) => {
-						return (
-							<>
-								{' '}
-								{count === i && (
-									<>
-										<li>
-											<img className="img-slide" src={src} alt={alt} />
-										</li>
-										<li>
-											<img className="img-slide" src={arr[i + 1].src} alt={arr[i + 1].src} />
-										</li>
-									</>
-								)}
-							</>
-						);
-					})}
-				</ul>
-				<div className="controls">
-					{/* <button className="prev" ref={nextBtn} onClick={prevClick}>
-						이전
-					</button>
-					<button className="next" ref={prevBtn} onClick={nextClick}>
-						이후
-					</button> */}
-					<ArrowButton className="prev" onClick={prevClick} />
-					<ArrowButton className="next" onClick={nextClick} />
-				</div>
-			</div>
-		</CarouselStyle>
+		<Container>
+			<SliderContainer ref={slideRef}>
+				{/* <Img src={carouselImg[TOTAL_SLIDES - 1].src} /> */}
+				{imgs.map(({ src }) => (
+					<Img src={src} />
+				))}
+				<Img src={carouselImg[0].src} />
+			</SliderContainer>
+			<Button onClick={prevSlide}>previous Slide</Button>
+			<Button onClick={nextSlide}>next slide</Button>
+		</Container>
 	);
 };
 
-export default Carousel;
+export default Slide;
