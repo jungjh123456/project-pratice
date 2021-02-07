@@ -2,6 +2,7 @@ import Button from '../UI/atoms/atoms-main/Button';
 import CircleDiv from '../UI/atoms/atoms-main/DivStyle';
 import TextStyle from '../UI/atoms/atoms-main/TextStyle';
 import Carousel from '../UI/molecules/molecules-main/Carousel';
+import CarouselLive from '../UI/molecules/molecules-main/CarouselLive';
 import CircleProfile from '../UI/molecules/molecules-main/CircleProfile';
 const carouselImg = [
 	{ src: './imgs/house.jpg', alt: '집 전체', name: '집 전체' },

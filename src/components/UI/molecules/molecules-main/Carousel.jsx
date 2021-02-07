@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { slideNext, slidePrev, slideReset } from '../../../../modules/slide';
 
 const Container = styled.div`
 	width: 60%;
@@ -33,41 +35,50 @@ const Slide = ({ carouselImg }) => {
 	const TOTAL_SLIDES = carouselImg.length;
 	const [currentSlide, setCurrentSlide] = useState(0);
 	const [imgs, setImg] = useState(carouselImg);
-	console.log(imgs[TOTAL_SLIDES - 1]);
-	console.log(imgs[0]);
+	const dispatch = useDispatch();
+
 	const slideRef = useRef(null);
-	console.log(carouselImg);
+	const { next } = useSelector((state) => state.buttonReducer);
 
 	// setImg((state) => ({ state, ...img }));
 	useEffect(() => {
-		// imgs.unshift(imgs[TOTAL_SLIDES - 1]);
-		// imgs.push(imgs[0]);
 		slideRef.current.style.transition = 'all 0.5s ease-in-out';
-		slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
-	}, [TOTAL_SLIDES, currentSlide, imgs]);
+		if (next > TOTAL_SLIDES) {
+			setTimeout(() => {
+				slideRef.current.style.transition = 'none';
+			}, 0.01);
+			dispatch(slideReset(0));
+		} else if (next < 0) {
+			setTimeout(() => {
+				slideRef.current.style.transition = 'none';
+			}, 0.01);
+			dispatch(slideReset(TOTAL_SLIDES));
+		}
+		slideRef.current.style.transform = `translateX(-${next}00%)`;
+	}, [TOTAL_SLIDES, currentSlide, dispatch, imgs, next]);
+	console.log(next, TOTAL_SLIDES);
 
 	const nextSlide = () => {
-		if (currentSlide === TOTAL_SLIDES) {
-			// setCurrentSlide(0);
-			// slideRef.current.style.transform = 'none';
-
-			setCurrentSlide(currentSlide + 1);
-		} else {
-			setCurrentSlide(currentSlide + 1);
+		if (next > TOTAL_SLIDES) {
+			// dispatch(slideReset(0));
 		}
+		dispatch(slideNext());
 	};
 
 	const prevSlide = () => {
-		if (currentSlide === 0) {
-			setCurrentSlide(TOTAL_SLIDES - 1);
+		if (next < 0) {
+			// dispatch(slideReset(TOTAL_SLIDES));
+			slideRef.current.style.transition = 'all 0.5s ease-in-out';
+			console.log(next);
 		} else {
-			setCurrentSlide(currentSlide - 1);
+			dispatch(slidePrev());
+			console.log(next);
 		}
 	};
 	return (
 		<Container>
 			<SliderContainer ref={slideRef}>
-				{/* <Img src={carouselImg[TOTAL_SLIDES - 1].src} /> */}
+				<Img src={carouselImg[TOTAL_SLIDES - 1].src} />
 				{imgs.map(({ src }) => (
 					<Img src={src} />
 				))}
