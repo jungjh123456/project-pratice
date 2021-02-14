@@ -39,41 +39,30 @@ const Slide = ({ carouselImg }) => {
 
 	const slideRef = useRef(null);
 	const { next } = useSelector((state) => state.buttonReducer);
-
+	console.log(next);
 	// setImg((state) => ({ state, ...img }));
 	useEffect(() => {
 		slideRef.current.style.transition = 'all 0.5s ease-in-out';
 		if (next > TOTAL_SLIDES) {
 			setTimeout(() => {
 				slideRef.current.style.transition = 'none';
-			}, 0.01);
+			}, 0.0001);
 			dispatch(slideReset(0));
 		} else if (next < 0) {
 			setTimeout(() => {
 				slideRef.current.style.transition = 'none';
-			}, 0.01);
+			}, 0.0001);
 			dispatch(slideReset(TOTAL_SLIDES));
 		}
 		slideRef.current.style.transform = `translateX(-${next}00%)`;
 	}, [TOTAL_SLIDES, currentSlide, dispatch, imgs, next]);
-	console.log(next, TOTAL_SLIDES);
 
 	const nextSlide = () => {
-		if (next > TOTAL_SLIDES) {
-			// dispatch(slideReset(0));
-		}
 		dispatch(slideNext());
 	};
 
 	const prevSlide = () => {
-		if (next < 0) {
-			// dispatch(slideReset(TOTAL_SLIDES));
-			slideRef.current.style.transition = 'all 0.5s ease-in-out';
-			console.log(next);
-		} else {
-			dispatch(slidePrev());
-			console.log(next);
-		}
+		dispatch(slidePrev());
 	};
 	return (
 		<Container>
